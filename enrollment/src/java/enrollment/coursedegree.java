@@ -78,7 +78,7 @@ public class coursedegree {
             System.out.println("No records were modified");
             return 0;
         }
-    };
+    }
     
     public int delRecord(String courseid, String degree) throws Exception { 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -101,7 +101,7 @@ public class coursedegree {
             e.printStackTrace();
             return 0;
         }
-    };
+    }
     
     public int addRecord(String courseid, String degree) throws Exception{ 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -125,7 +125,7 @@ public class coursedegree {
             e.printStackTrace();
             return 0;
         }
-    };
+    }
     
     public int viewRecord() throws Exception{ 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -153,7 +153,7 @@ public class coursedegree {
             e.printStackTrace();
             return 0;
         }
-    };
+    }
     
     public static void main(String args[]) throws Exception{
        coursedegree c = new coursedegree();

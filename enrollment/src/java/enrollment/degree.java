@@ -43,7 +43,7 @@ public class degree {
             // 3. Indicate a notice of successful connection
             System.out.println("Connection Successful");
             // 4. Prepare our INSERT Statement
-            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM orders WHERE ordernumber=?");
+            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM degree WHERE degreeid=?");
             // 5. Supply the statement with values
             pstmt.setString    (1, degreeid );
             // 6. Execute the SQL Statement
@@ -112,6 +112,6 @@ public class degree {
     }
     
     public static void main(String args[]) {
-        
+
     }
 }
