@@ -114,7 +114,6 @@ public class courses {
         String coursename = "Mathematics in a Modern World";
         String department = "College of Mathematics";
         
-        c.delRecord(courseid);
         c.viewRecord();
     }
 }
