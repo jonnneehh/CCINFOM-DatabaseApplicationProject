@@ -55,7 +55,30 @@ public class students {
     		return 0;
     	}
     }
-    public int addRecord()  { return 0; };
+    public int addRecord()  {
+        try {
+            // 1. Instantiate a connection variable
+            Connection conn;     
+            // 2. Connect to your DB
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345");
+            // 3. Indicate a notice of successful connection
+            System.out.println("Connection Successful");
+            // 4. Prepare our INSERT Statement
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO students VALUES (?,?,?)");
+            // 5. Supply the statement with values
+            pstmt.setInt    (1, studentid );
+            pstmt.setString (2, completename);
+            pstmt.setString    (3, degreeid);
+            // 6. Execute the SQL Statement
+            pstmt.executeUpdate();   
+            pstmt.close();
+            conn.close();
+            return 1;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());  
+            return 0;
+        } 
+    };
     public int viewRecord() {
         try {
     		// 1. Instantiate a connection variable
@@ -147,6 +170,12 @@ public class students {
 //    	System.out.println(S.studentid);
 //    	System.out.println(S.completename);
 //    	System.out.println(S.degreeid);
+
+        S.studentid=10100011;
+    	S.completename="Bing Bong";
+    	S.degreeid="BSMS";
+
+        S.addRecord();
     	
     	S.viewAllRecords();
     }
