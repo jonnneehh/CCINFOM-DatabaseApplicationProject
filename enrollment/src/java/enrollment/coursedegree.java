@@ -5,6 +5,9 @@ public class coursedegree {
     private String courseid;
     private String degree;
     
+    public  String  coursedegreeid ;          
+    public  String  coursedegreename;
+    
     public coursedegree () {};
     
     public int modRecord(String oldcourseid, String olddegree, String newcourseid, String newdegree) throws Exception { 
@@ -77,7 +80,7 @@ public class coursedegree {
             System.out.println("No records were modified");
             return 0;
         }
-    };
+    }
     
     public int delRecord(String courseid, String degree) throws Exception { 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -100,7 +103,7 @@ public class coursedegree {
             e.printStackTrace();
             return 0;
         }
-    };
+    }
     
     public int addRecord(String courseid, String degree) throws Exception{ 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -124,7 +127,7 @@ public class coursedegree {
             e.printStackTrace();
             return 0;
         }
-    };
+    }
     
     public int viewRecord() throws Exception{ 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -152,7 +155,7 @@ public class coursedegree {
             e.printStackTrace();
             return 0;
         }
-    };
+    }
     
     public String getCourseid() {
 		return courseid;

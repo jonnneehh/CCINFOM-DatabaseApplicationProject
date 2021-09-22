@@ -6,14 +6,20 @@ public class enroll {
 
     students                        Student         = new students();
     public ArrayList<enrollment>    EnrollmentList  = new ArrayList<> ();
+<<<<<<< HEAD
     public ArrayList<courses>       CourseList      = new ArrayList<> ();
     
     public enroll() {					// perform all the necessary data loading from DB
+=======
+    public ArrayList<coursedegree>  CourseList      = new ArrayList<> ();
+ 
+    public enroll() {			// perform all the necessary data loading from DB
+>>>>>>> a1e90944e0f0e8cb383529f8485faa189473089a
         EnrollmentList.clear();
         CourseList.clear();
-    };  
+    }  
     
-    public int resetEnroll() {			// clears all enrollment in memory
+    public int resetEnroll() {		// clears all enrollment in memory
     	EnrollmentList.clear();
     	return 1;
     }
@@ -37,9 +43,16 @@ public class enroll {
 
             CourseList.clear();
             while (rs.next()) {
+<<<<<<< HEAD
                 courses c 	= new courses();
                 c.setCourseid(rs.getString("courseid"));
                 CourseList.add(c);
+=======
+                coursedegree CD 	= new coursedegree();
+                CD.coursedegreeid 	= rs.getString("courseid");
+                CD.coursedegreename     = rs.getString("degree");
+                CourseList.add(CD);
+>>>>>>> a1e90944e0f0e8cb383529f8485faa189473089a
             }
             rs.close();
             return 1;
@@ -52,7 +65,16 @@ public class enroll {
     public int submitEnroll()  {   // saves enrollment data into the Database
         try {
             for (int i = 0; i < EnrollmentList.size(); i++) {
+<<<<<<< HEAD
                 EnrollmentList.get(i).addRecord();
+=======
+                // Retrieve every enrolled courses stored in the EnrollmentList
+                enrollment enrecord = new enrollment();
+                enrecord = (enrollment)EnrollmentList.get(i);
+                
+                // Update the Database
+                enrecord.addRecord();
+>>>>>>> a1e90944e0f0e8cb383529f8485faa189473089a
             }
             return 1;
          } catch (Exception e) {
