@@ -40,7 +40,6 @@ public class students {
     		conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345");
     		// 3. Indicate a notice of successful connection
     		System.out.println("Connection successful!");
-    		System.out.println("CHECK");//DELETE
     		// 4. Prepare our INSERT Statement
     		PreparedStatement pstmt = conn.prepareStatement("DELETE FROM students WHERE studentid=?");
     		// 5. Supply the statement with values
@@ -78,7 +77,7 @@ public class students {
             System.out.println(e.getMessage());  
             return 0;
         } 
-    };
+    }
     public int viewRecord() {
         try {
     		// 1. Instantiate a connection variable
