@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Enrollment Options</title>
     </head>
+    <a href="../src/java/enrollment/enroll.java"></a>
     <body>
         <div>Enroll <a href="enroll.jsp"> here </a></div>
         <div>Drop <a href=""> here </a></div>

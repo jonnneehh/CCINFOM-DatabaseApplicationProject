@@ -23,7 +23,7 @@ public class drop {
     }   // clears dropping data of the student
     public int loadEnrollment (int studentid, String courseid, int term, int schoolyear)    {
         
-        enrollment e_temp = new enrollment();
+        enrollment e_temp = new enrollment(studentid, courseid, term, schoolyear);
         
         e_temp.studentid = studentid;
         e_temp.courseid = courseid;
@@ -52,7 +52,7 @@ public class drop {
             clearDrop();
             
             while (rs.next()) {
-                enrollment d_temp = new enrollment();
+                enrollment d_temp = new enrollment(Student.studentid, rs.getString("courseid"), rs.getInt("term"), rs.getInt("schoolyear"));
                 d_temp.courseid = rs.getString("courseid");
                 d_temp.term = rs.getInt("term");
                 d_temp.schoolyear = rs.getInt("schoolyear");
