@@ -36,6 +36,11 @@
             ResultSet rs = pstmt.executeQuery(); 
             while (rs.next()){
         %>
+          <tr>
+            <th>Course</th>
+            <th>Students</th>
+        </tr>
+        
         <tr>
             <td><%=rs.getString("Course")%></td>
             <td><%=rs.getInt("Students")%></td>
