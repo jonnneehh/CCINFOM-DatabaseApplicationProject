@@ -32,7 +32,7 @@ public class enroll {
             // 3. Indicate a notice of successful connection
             System.out.println("Connection Successful");
             // 4. Prepare our INSERT Statement
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM courses");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM courses"); // Edit
             // 5. Supply the statement with values
             ResultSet rs = pstmt.executeQuery(); 
             
@@ -41,8 +41,8 @@ public class enroll {
             CourseList.clear();
             while (rs.next()) {
                 coursedegree CD 	= new coursedegree();
-                CD.coursedegreeid 	= rs.getString("courseid");
-                CD.coursedegreename     = rs.getString("degree");
+//                CD.coursedegreeid 	= rs.getString("courseid");
+//                CD.coursedegreename     = rs.getString("degree");
                 CourseList.add(CD);
             }
             rs.close();
@@ -55,31 +55,28 @@ public class enroll {
         }   
     }
 
-//    public int submitEnroll()  {   // saves enrollment data into the Database
-//        try {
-//            Student.addRecord();     
-//            
-//            for (int i = 0; i < EnrollmentList.size(); i++) {
-//                // Retrieve every orderdetails stored in the ArrayList
-//                orderdetails odrecord = new orderdetails();
-//                odrecord = (orderdetails)OD.get(i);
-//
-//                // Retrieve product record to update the quantity
-//                products precord = new products();
-//                precord.pcode = odrecord.pcode;
-//                precord.viewRecord();
-//                precord.qty   = precord.qty - odrecord.qty;
-//                
-//                // Update the Database
-//                odrecord.addRecord();
-//                precord.modRecord();
-//            }
-//            return 1;
-//         } catch (Exception e) {
-//             System.out.println(e.getMessage());  
-//             return 0;               
-//         }     
-//    }
+    public int submitEnroll()  {   // saves enrollment data into the Database
+        try {
+            Student.addRecord();     
+            
+            for (int i = 0; i < EnrollmentList.size(); i++) {
+                // Retrieve every enrolled courses stored in the EnrollmentList
+                enrollment enrecord = new enrollment();
+                enrecord = (enrollment)EnrollmentList.get(i);
+
+                // Retrieve enrollement record 
+                enrecord.viewRecord();
+                enrecord.term   = enrecord.term + 1;
+                
+                // Update the Database
+                enrecord.addRecord();
+            }
+            return 1;
+         } catch (Exception e) {
+             System.out.println(e.getMessage());  
+             return 0;               
+         }     
+    }
     
 //    public int confirmEnrollment()  {   // saves enrollment data into the Database
 //    	return 1;
