@@ -11,7 +11,7 @@ public class enroll {
     public enroll() {			// perform all the necessary data loading from DB
         EnrollmentList.clear();
         CourseList.clear();
-    };  
+    }  
     
     public int resetEnroll() {		// clears all enrollment in memory
     	EnrollmentList.clear();
