@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*, java.util.*, enrollment.*" %>
+<%@page import="enrollment.students" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,5 +15,10 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <select>
+            <%students S = new students();
+               S.viewAllRecords();
+                %>
+        </select>
     </body>
 </html>
