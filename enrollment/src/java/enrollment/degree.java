@@ -32,7 +32,7 @@ public class degree {
             System.out.println(e.getMessage());
             return 0;
         }
-    };
+    }
     
     public int delRecord()  {
     	try {
@@ -56,7 +56,7 @@ public class degree {
             System.out.println(e.getMessage());
             return 0;
         }
-    };
+    }
     
     public int addRecord()  {
     	try {
@@ -80,7 +80,7 @@ public class degree {
             System.out.println(e.getMessage());
             return 0;
         }
-    };
+    }
     
     public int viewRecord() {
     	try {
@@ -109,7 +109,7 @@ public class degree {
             System.out.println(e.getMessage());
             return 0;
         }
-    };
+    }
     
     public static void main(String args[]) {
         
