@@ -14,12 +14,6 @@
         <title>Enrollment Options</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <select>
-            <%students S = new students();
-               S.viewAllRecords();
-                %>
-        </select>
         <div>Enroll <a href="enroll.jsp"> here </a></div>
         <div>Drop <a href="drop.jsp"> here </a></div>
         <div>Report <a href="report.jsp"> here </a></div>

@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Enrollment Report</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Enter details for report generation</h1>
+            <form name ="GenerateReport" action ="generatereport.jsp" method ="POST">
+            Term - <input type = "text" name ="term" id ="term"> </br>
+            School Year - <input type = "text" name ="schoolyear" id ="schoolyear"> </br>
+            <input type ="Submit"  value ="Generate Report" name="Generate Report" />
+        </form> 
     </body>
 </html>

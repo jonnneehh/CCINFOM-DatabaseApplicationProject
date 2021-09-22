@@ -8,12 +8,12 @@ public class enroll {
     public ArrayList<enrollment>    EnrollmentList  = new ArrayList<> ();
     public ArrayList<coursedegree>  CourseList      = new ArrayList<> ();
  
-    public enroll() {					// perform all the necessary data loading from DB
+    public enroll() {			// perform all the necessary data loading from DB
         EnrollmentList.clear();
         CourseList.clear();
     };  
     
-    public int resetEnroll() {			// clears all enrollment in memory
+    public int resetEnroll() {		// clears all enrollment in memory
     	EnrollmentList.clear();
     	return 1;
     }

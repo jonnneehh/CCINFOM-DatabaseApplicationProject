@@ -1,7 +1,7 @@
 <%-- 
-    Document   : drop.jsp
-    Created on : 22 Sep 2021, 5:39:26 pm
-    Author     : Jared
+    Document   : studentmaintenance
+    Created on : 02 1, 21, 2:45:23 PM
+    Author     : ccslearner
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Student Drop</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Student Drop</h1>
+        <a href="loadStudentdataDrop.jsp">Load Student Data</a><br>
+        <a href="adddrop.jsp">Select Course to drop</a><br>
+        
     </body>
 </html>
