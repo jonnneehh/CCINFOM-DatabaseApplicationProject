@@ -63,10 +63,6 @@ public class enroll {
                 // Retrieve every enrolled courses stored in the EnrollmentList
                 enrollment enrecord = new enrollment();
                 enrecord = (enrollment)EnrollmentList.get(i);
-
-                // Retrieve enrollement record 
-                enrecord.viewRecord();
-                enrecord.term   = enrecord.term + 1;
                 
                 // Update the Database
                 enrecord.addRecord();
