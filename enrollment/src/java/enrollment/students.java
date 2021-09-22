@@ -13,7 +13,7 @@ public class students {
     		// 1. Instantiate a connection variable
     		Connection conn;
     		// 2. Connect to your DB
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345");
+    		conn = DriverManager.getConnection("jdbc:mysql://localhost:3310/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345");
     		// 3. Indicate a notice of successful connection
     		System.out.println("Connection successful!");
     		// 4. Prepare our INSERT Statement
