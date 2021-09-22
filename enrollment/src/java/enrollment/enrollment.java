@@ -8,7 +8,12 @@ public class enrollment {
     public int term;
     public int schoolyear;
     
-    public enrollment () {};
+    public enrollment (int studentid, String courseid, int term, int schoolyear) {
+        this.studentid = studentid;
+        this.courseid = courseid;
+        this.term = term;
+        this.schoolyear = schoolyear;
+    };
     public int modRecord()  {
            try {
     		// 1. Instantiate a connection variable
@@ -56,25 +61,23 @@ public class enrollment {
     		return 0;
     	}
     }
-    public int addRecord()  {
-        try {
-            // 1. Instantiate a connection variable
-            Connection conn;     
-            // 2. Connect to your DB
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345");
-            // 3. Indicate a notice of successful connection
-            System.out.println("Connection Successful");
-            // 4. Prepare our INSERT Statement
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO enrollment VALUES (?,?,?,?)");
-            // 5. Supply the statement with values
-            pstmt.setInt    (1, studentid );
-            pstmt.setString (2, courseid);
-            pstmt.setInt    (3, term);
-            pstmt.setInt    (4, schoolyear);
-            // 6. Execute the SQL Statement
-            pstmt.executeUpdate();   
-            pstmt.close();
-            conn.close();
+    public int addRecord() throws Exception {
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        
+        String query = "INSERT INTO enrollment VALUES (?,?,?,?)";
+        
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        try (Connection con = DriverManager.getConnection(url, un, pw); 
+                PreparedStatement st = con.prepareStatement(query)) {
+
+
+            st.setInt    (1, studentid );
+            st.setString (2, courseid);
+            st.setInt    (3, term);
+            st.setInt    (4, schoolyear);
+
+            st.executeUpdate();   
             return 1;
         } catch (SQLException e) {
             System.out.println(e.getMessage());  

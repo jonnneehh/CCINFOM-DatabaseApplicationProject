@@ -21,7 +21,7 @@
                 %>
         </select>
         <div>Enroll <a href="enroll.jsp"> here </a></div>
-        <div>Drop <a href="drop.jsp"> here </a></div>
+        <div>Drop <a href=""> here </a></div>
         <div>Report <a href="report.jsp"> here </a></div>
     </body>
 </html>

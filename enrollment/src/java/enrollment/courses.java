@@ -3,6 +3,10 @@ import java.sql.*;
 
 public class courses {
     
+    private String courseid;
+    private String coursename;
+    private String department;
+    
     public courses () {};
     public int modRecord(String oldcourseid, String newcourseid, String newcoursename, String newdepartment) throws Exception { 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
@@ -107,6 +111,30 @@ public class courses {
             return 0;
         }
     };
+    
+    public String getCourseid() {
+		return courseid;
+	}
+
+	public void setCourseid(String courseid) {
+		this.courseid = courseid;
+	}
+
+	public String getCoursename() {
+		return coursename;
+	}
+
+	public void setCoursename(String coursename) {
+		this.coursename = coursename;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
     
     public static void main(String args[]) throws Exception {
         courses c = new courses();

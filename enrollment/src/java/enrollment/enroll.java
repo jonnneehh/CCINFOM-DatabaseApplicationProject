@@ -6,8 +6,8 @@ public class enroll {
 
     students                        Student         = new students();
     public ArrayList<enrollment>    EnrollmentList  = new ArrayList<> ();
-    public ArrayList<coursedegree>  CourseList      = new ArrayList<> ();
- 
+    public ArrayList<courses>       CourseList      = new ArrayList<> ();
+    
     public enroll() {					// perform all the necessary data loading from DB
         EnrollmentList.clear();
         CourseList.clear();
@@ -23,31 +23,25 @@ public class enroll {
 //    	return 1;
 //    }
     
-    public int loadCourses ()       {   // load valid courses into the course list
-        try {
-            // 1. Instantiate a connection variable
-            Connection conn;
-            // 2. Connect to your DB
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3310/enrolldb?useTimezone=true&serverTimezone=UTC&user=root&password=12345");
-            // 3. Indicate a notice of successful connection
-            System.out.println("Connection Successful");
-            // 4. Prepare our INSERT Statement
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM courses"); // Edit
-            // 5. Supply the statement with values
-            ResultSet rs = pstmt.executeQuery(); 
+    public int loadCourses () throws Exception{   // load valid courses into the course list
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        
+        String query = "SELECT * FROM courses";
+        
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        try(Connection con = DriverManager.getConnection(url, un, pw); 
+                Statement st = con.createStatement()){
             
-            // 6. Execute the SQL Statement  
-            // 7. Get the results
+            ResultSet rs = st.executeQuery(query); 
+
             CourseList.clear();
             while (rs.next()) {
-                coursedegree CD 	= new coursedegree();
-//                CD.coursedegreeid 	= rs.getString("courseid");
-//                CD.coursedegreename     = rs.getString("degree");
-                CourseList.add(CD);
+                courses c 	= new courses();
+                c.setCourseid(rs.getString("courseid"));
+                CourseList.add(c);
             }
             rs.close();
-            pstmt.close();
-            conn.close();
             return 1;
         } catch (SQLException e) {
             System.out.println(e.getMessage());  
@@ -57,19 +51,8 @@ public class enroll {
 
     public int submitEnroll()  {   // saves enrollment data into the Database
         try {
-            Student.addRecord();     
-            
             for (int i = 0; i < EnrollmentList.size(); i++) {
-                // Retrieve every enrolled courses stored in the EnrollmentList
-                enrollment enrecord = new enrollment();
-                enrecord = (enrollment)EnrollmentList.get(i);
-
-                // Retrieve enrollement record 
-                enrecord.viewRecord();
-                enrecord.term   = enrecord.term + 1;
-                
-                // Update the Database
-                enrecord.addRecord();
+                EnrollmentList.get(i).addRecord();
             }
             return 1;
          } catch (Exception e) {
@@ -82,4 +65,11 @@ public class enroll {
 //    	return 1;
 //    }
     
+    public static void main(String args[]) throws Exception {
+       enroll e = new enroll();
+       
+       e.EnrollmentList.add(new enrollment(10100005, "ISINFOM", 2, 20192020));
+       System.out.println(e.EnrollmentList.size());
+       e.submitEnroll();
+    }
 }

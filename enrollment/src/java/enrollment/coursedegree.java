@@ -2,6 +2,8 @@ package enrollment;
 import java.sql.*;
 
 public class coursedegree {
+    private String courseid;
+    private String degree;
     
     public coursedegree () {};
     
@@ -151,6 +153,22 @@ public class coursedegree {
             return 0;
         }
     };
+    
+    public String getCourseid() {
+		return courseid;
+	}
+
+	public void setCourseid(String courseid) {
+		this.courseid = courseid;
+	}
+
+	public String getDegree() {
+		return degree;
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
     
     public static void main(String args[]) throws Exception{
        coursedegree c = new coursedegree();
