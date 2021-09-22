@@ -11,7 +11,7 @@ public class coursedegree {
     public coursedegree () {};
     
     public int modRecord(String oldcourseid, String olddegree, String newcourseid, String newdegree) throws Exception { 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -83,7 +83,7 @@ public class coursedegree {
     }
     
     public int delRecord(String courseid, String degree) throws Exception { 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "delete from coursedegree where courseid=? and degree=?";
         
@@ -106,7 +106,7 @@ public class coursedegree {
     }
     
     public int addRecord(String courseid, String degree) throws Exception{ 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "insert into coursedegree values (?,?)";
         
@@ -130,7 +130,7 @@ public class coursedegree {
     }
     
     public int viewRecord() throws Exception{ 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "select * from coursedegree order by degree";
         

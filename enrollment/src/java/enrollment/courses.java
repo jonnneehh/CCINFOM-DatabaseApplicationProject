@@ -9,7 +9,7 @@ public class courses {
     
     public courses () {};
     public int modRecord(String oldcourseid, String newcourseid, String newcoursename, String newdepartment) throws Exception { 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         Class.forName("com.mysql.cj.jdbc.Driver");
             
@@ -37,7 +37,7 @@ public class courses {
     }
     
     public int delRecord(String courseid) throws Exception  { 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "delete from courses where courseid=?";
         
@@ -59,7 +59,7 @@ public class courses {
     }
     
     public int addRecord(String courseid, String coursename, String department) throws Exception  { 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "insert into courses values (?,?,?)";
         
@@ -84,7 +84,7 @@ public class courses {
     }
     
     public int viewRecord() throws Exception { 
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "select * from courses order by courseid";
         

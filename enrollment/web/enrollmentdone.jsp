@@ -14,10 +14,11 @@
     </head>
     <body>
         <%
-        enroll e = new enroll();
-        e.submitEnroll();
+            enroll e = (enroll) session.getAttribute("e");
+            e.submitEnroll();
+            session.invalidate();
         %>
-        session.invalidate()
+        
         <a href ="index.jsp">Back to start</a>
     </body>
 </html>

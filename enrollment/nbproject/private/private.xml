@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/web/index.jsp</file>
-            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/web/addtoenrollcart.jsp</file>
+            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/coursedegree.java</file>
+            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/courses.java</file>
             <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/enrollment.java</file>
-            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/web/enrollmentdone.jsp</file>
-            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/web/enroll.jsp</file>
+            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/drop.java</file>
+            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/degree.java</file>
             <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/enroll.java</file>
+            <file>file:/D:/Programs/Java/.netbeans/CCINFOM-DatabaseApplicationProject/enrollment/src/java/enrollment/students.java</file>
         </group>
     </open-files>
 </project-private>

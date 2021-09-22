@@ -15,7 +15,7 @@
     <body>
         <form>
             <%
-                enroll e = new enroll();
+                enroll e = (enroll) session.getAttribute("e");
                 
                 int studentid = (int) session.getAttribute("studentid");
                 String courseid = request.getParameter("courses");

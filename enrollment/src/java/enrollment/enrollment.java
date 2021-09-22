@@ -62,7 +62,7 @@ public class enrollment {
     	}
     }
     public int addRecord() throws Exception {
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "INSERT INTO enrollment VALUES (?,?,?,?)";
         

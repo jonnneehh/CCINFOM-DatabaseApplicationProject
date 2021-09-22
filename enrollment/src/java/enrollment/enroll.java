@@ -25,7 +25,7 @@ public class enroll {
 //    }
     
     public int loadCourses () throws Exception{   // load valid courses into the course list
-        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "12345";
         
         String query = "SELECT * FROM courses";
         

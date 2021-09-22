@@ -35,10 +35,11 @@
             int studentid = Integer.parseInt(request.getParameter("studentid"));
             int schoolyear = Integer.parseInt(request.getParameter("schoolyear"));
             int term = Integer.parseInt(request.getParameter("term"));
-
+                
             session.setAttribute("studentid", studentid); 
             session.setAttribute("schoolyear", schoolyear);
             session.setAttribute("term", term);
+            session.setAttribute("e", e);
             %>
             <p>Student ID: <%= studentid %> </p>
             <p>School Year: <%= schoolyear %></p>
