@@ -1,5 +1,5 @@
 <%-- 
-    Document   : enroll.jsp
+    Document   : index.jsp
     Created on : 22 Sep 2021, 5:39:26 pm
     Author     : Jared
 --%>
@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Enrollment Options</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>Enroll <a href="enroll.jsp"> here </a></div>
+        <div>Drop <a href="drop.jsp"> here </a></div>
+        <div>Report <a href="report.jsp"> here </a></div>
     </body>
 </html>
