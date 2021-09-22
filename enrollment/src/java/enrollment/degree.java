@@ -98,7 +98,7 @@ public class degree {
             ResultSet rs = pstmt.executeQuery(); 
             // 7. Get the results
             while (rs.next()) {
-                degreeid  	= rs.getString("degreeid");
+                degreeid    = rs.getString("degreeid");
                 degreename  = rs.getString("degreename");
             }
             rs.close();
