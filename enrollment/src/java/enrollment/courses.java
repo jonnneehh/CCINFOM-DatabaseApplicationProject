@@ -5,28 +5,16 @@ public class courses {
     
     public courses () {};
     public int modRecord(String oldcourseid, String newcourseid, String newcoursename, String newdepartment) throws Exception { 
-        int success = 0;
-        
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
         
         Class.forName("com.mysql.cj.jdbc.Driver");
-        
-        String query = "select * from enrolldb where course_id=" + oldcourseid;
             
         try (Connection con = DriverManager.getConnection(url, un, pw); 
                 Statement st = con.createStatement()) {
             
-            ResultSet rs = st.executeQuery(query);
-                    
-            String oldcoursename = rs.getString("coursename"),
-                   olddepartment = rs.getString("department");
-            
-            String queryCourseID = "update courses set courseid="+ newcourseid + " where course_id in ('" + oldcourseid + "')";
             String queryCourseName = "update courses set coursename="+ newcoursename + " where course_id in ('" + oldcourseid + "')";
             String queryDepartment = "update courses set department="+ newdepartment + " where course_id in ('" + oldcourseid + "')";
-            
-            if(newcourseid != null)
-                st.executeQuery(queryCourseID);
+            String queryCourseID = "update courses set courseid="+ newcourseid + " where course_id in ('" + oldcourseid + "')";
             
             if(newcoursename != null)
                 st.executeQuery(queryCourseName);
@@ -34,17 +22,17 @@ public class courses {
             if(newdepartment != null)
                 st.executeQuery(queryDepartment);
             
-            success = 1;
+            if(newcourseid != null)
+                st.executeQuery(queryCourseID);
+            
+            return 1;
         } catch (SQLException e){
             e.printStackTrace();
+            return 0;
         }
-        
-        return success; 
     };
     
     public int delRecord(String courseid) throws Exception  { 
-        int success = 0;
-        
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
         
         String query = "delete from enrolldb where courseid=?";
@@ -58,15 +46,15 @@ public class courses {
             st.executeUpdate();
             
             System.out.println("Record " + courseid + " deleted successfully");
+            
+            return 1;
         } catch (SQLException e){
             e.printStackTrace();
+            return 0;
         }
-        return success; 
     };
     
     public int addRecord(String courseid, String coursename, String department) throws Exception  { 
-        int success = 0;
-        
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
         
         String query = "insert into courses values (?,?,?)";
@@ -84,15 +72,41 @@ public class courses {
             
             System.out.println(count + " row/s affected");
             
-            success = 1;
+            return 1;
         } catch (SQLException e){
             e.printStackTrace();
+            return 0;
         }
-        
-        return success; 
     };
     
-    public int viewRecord() { return 0; };
+    public int viewRecord() throws Exception{ 
+        String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
+        
+        String query = "select * from courses order by courseid";
+        
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        try (Connection con = DriverManager.getConnection(url, un, pw); 
+                Statement st = con.createStatement()) {
+            
+            ResultSet rs = st.executeQuery(query);
+            
+            while(rs.next()){
+                String courseid = rs.getString("courseid");
+                String coursename = rs.getString("coursename");
+                String department = rs.getString("department");
+                
+                System.out.println(courseid + "  " + coursename + "  " + department);
+            }
+            
+            rs.close();
+            
+            return 1;
+        } catch (SQLException e){
+            e.printStackTrace();
+            return 0;
+        }
+    };
     
     public static void main(String args[]) {
         
