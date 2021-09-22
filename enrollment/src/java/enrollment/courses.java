@@ -12,18 +12,18 @@ public class courses {
         try (Connection con = DriverManager.getConnection(url, un, pw); 
                 Statement st = con.createStatement()) {
             
-            String queryCourseName = "update courses set coursename="+ newcoursename + " where course_id in ('" + oldcourseid + "')";
-            String queryDepartment = "update courses set department="+ newdepartment + " where course_id in ('" + oldcourseid + "')";
-            String queryCourseID = "update courses set courseid="+ newcourseid + " where course_id in ('" + oldcourseid + "')";
+            String queryCourseName = "update courses set coursename='"+ newcoursename + "' where courseid in ('" + oldcourseid + "')";
+            String queryDepartment = "update courses set department='"+ newdepartment + "' where courseid in ('" + oldcourseid + "')";
+            String queryCourseID = "update courses set courseid='"+ newcourseid + "' where courseid in ('" + oldcourseid + "')";
             
             if(newcoursename != null)
-                st.executeQuery(queryCourseName);
+                st.executeUpdate(queryCourseName);
             
             if(newdepartment != null)
-                st.executeQuery(queryDepartment);
+                st.executeUpdate(queryDepartment);
             
             if(newcourseid != null)
-                st.executeQuery(queryCourseID);
+                st.executeUpdate(queryCourseID);
             
             return 1;
         } catch (SQLException e){
@@ -35,7 +35,7 @@ public class courses {
     public int delRecord(String courseid) throws Exception  { 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
         
-        String query = "delete from enrolldb where courseid=?";
+        String query = "delete from courses where courseid=?";
         
         Class.forName("com.mysql.cj.jdbc.Driver");
         
@@ -79,7 +79,7 @@ public class courses {
         }
     };
     
-    public int viewRecord() throws Exception{ 
+    public int viewRecord() throws Exception { 
         String url = "jdbc:mysql://localhost:3310/enrolldb", un = "root", pw = "p@ssword";
         
         String query = "select * from courses order by courseid";
@@ -108,7 +108,13 @@ public class courses {
         }
     };
     
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
+        courses c = new courses();
+        String courseid = "GEMATMW";
+        String coursename = "Mathematics in a Modern World";
+        String department = "College of Mathematics";
         
+        c.delRecord(courseid);
+        c.viewRecord();
     }
 }
