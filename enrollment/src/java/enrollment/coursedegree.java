@@ -3,6 +3,9 @@ import java.sql.*;
 
 public class coursedegree {
     
+    public  String  coursedegreeid ;          
+    public  String  coursedegreename;
+    
     public coursedegree () {};
     
     public int modRecord(String oldcourseid, String olddegree, String newcourseid, String newdegree) throws Exception { 
