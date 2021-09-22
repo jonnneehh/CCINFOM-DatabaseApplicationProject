@@ -60,19 +60,16 @@ public class enroll {
             Student.addRecord();     
             
             for (int i = 0; i < EnrollmentList.size(); i++) {
-                // Retrieve every orderdetails stored in the ArrayList
-                orderdetails odrecord = new orderdetails();
-                odrecord = (orderdetails)OD.get(i);
+                // Retrieve every enrolled courses stored in the EnrollmentList
+                enrollment enrecord = new enrollment();
+                enrecord = (enrollment)EnrollmentList.get(i);
 
-                // Retrieve product record to update the quantity
-                products precord = new products();
-                precord.pcode = odrecord.pcode;
-                precord.viewRecord();
-                precord.qty   = precord.qty - odrecord.qty;
+                // Retrieve enrollement record 
+                enrecord.viewRecord();
+                enrecord.term   = enrecord.term + 1;
                 
                 // Update the Database
-                odrecord.addRecord();
-                precord.modRecord();
+                enrecord.addRecord();
             }
             return 1;
          } catch (Exception e) {

@@ -29,7 +29,6 @@ public class drop {
         e_temp.courseid = courseid;
         e_temp.term = term;
         e_temp.schoolyear = schoolyear;
-        
     
         EnrollmentList.add(e_temp);
         return 1;
